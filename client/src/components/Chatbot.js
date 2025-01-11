@@ -10,10 +10,16 @@ const Chatbot = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/api/ideas", {
-        query,
-      });
-      setIdeas(response.data.ideas);
+      // const response = await axios.post("http://localhost:4000/api/ideas", {
+      //   query,
+      // });
+
+      // setIdeas(response.data);
+      setIdeas([
+        "1. Mood-based Playlist Generator:",
+        "2. Skill Swap Marketplace:",
+        "3. Instant Recipe Wizard:",
+      ]);
     } catch (error) {
       console.error("Error fetching ideas:", error);
     }
