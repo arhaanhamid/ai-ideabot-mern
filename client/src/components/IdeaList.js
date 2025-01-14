@@ -18,11 +18,14 @@ const IdeaList = ({ ideas, chosenIdeas, setChosenIdeas }) => {
         <div
           key={index}
           className={`ideas-div ${
-            chosenIdeas.includes(idea) ? "selected" : ""
+            chosenIdeas.includes(idea.ideaTitle) ? "selected" : ""
           }`}
-          onClick={() => handleIdeaClick(idea)}
+          onClick={() => handleIdeaClick(idea.ideaTitle)}
         >
-          {idea}
+          {idea.ideaTitle}
+          <div className="ask-explain" style={{ display: chosenIdeas.includes(idea.ideaTitle) ? "block" : "none" }}
+          >Why this score?</div>
+          <div className="ideas-score">{idea.ideaScore}</div>
         </div>
       ))}
     </div>

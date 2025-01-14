@@ -17,13 +17,13 @@ const Chatbot = () => {
       //   query,
       // });
 
-      // setIdeas(response.data.ideas);
+      // setIdeas(JSON.parse(response.data.ideas));
       // setLastQuery(response.data.query);
       // console.log(response.data);
       setIdeas([
-        "1. Virtual wardrobe organizer with AI outfit suggestions.  ",
-        "2. Local volunteer opportunities matchmaking based on interests.  ",
-        "3. Interactive wellness journal with daily mindfulness prompts.",
+        {ideaTitle: "Local History Interactive Tours App", ideaScore: 2, ideaExplanation: "This app offers users engaging, location-based historical content. It aligns well with the mobile app concept, has strong potential to enhance local tourism, and is feasible with existing GIS technology."},       
+        {ideaTitle: "Virtual Fitness Challenge Tracker", ideaScore: 3, ideaExplanation: "Users can join fitness challenges, track progress, and share results. It caters to the current fitness trend, is impactful by promoting health, and is relatively easy to develop using standard app features."},      
+        {ideaTitle: "Daily Mood Tracker with Journaling", ideaScore: 4, ideaExplanation: "A simple app for users to log their moods daily. Although it promotes mental wellness, it’s less innovative and could face competition, impacting its uniqueness and potential."}
       ]);
       setLastQuery("mobile app");
     } catch (error) {
@@ -56,14 +56,14 @@ const Chatbot = () => {
 
   return (
     <div className="container">
-      <h1 className="navbar">Idea Suggestion Chatbot</h1>
+      {/* <h1 className="navbar">Idea Suggestion Chatbot</h1> */}
 
       <div className="content">
         {ideas.length > 0 && (
           <div className="ideas-container">
-            <h1>
+            <p className="instruction">
               Select any two ideas of your choice to get a detailed explanation:
-            </h1>
+            </p>
             <IdeaList
               ideas={ideas}
               chosenIdeas={chosenIdeas}
