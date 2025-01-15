@@ -22,6 +22,8 @@ const IdeaList = ({ ideas, chosenIdeas, setChosenIdeas }) => {
     }
   };
 
+  console.log(chosenIdeas);
+  console.log(selectedIdeas);
   return (
     <div className="choices-container">
       {ideas.map((idea, index) => (

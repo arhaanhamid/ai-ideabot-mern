@@ -3,10 +3,10 @@ import axios from "axios";
 import { OpenAI } from "openai";
 import dotenv from "dotenv";
 
-dotenv.config(); // Ensure dotenv is configured
+dotenv.config();
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-console.log(process.env.OPENAI_API_KEY);
 const router = express.Router();
+
 // POST /api/ideas
 router.post("/", async (req, res) => {
   const { query } = req.body;
@@ -14,7 +14,6 @@ router.post("/", async (req, res) => {
   if (!query) return res.status(400).json({ error: "Query is required." });
 
   try {
-    // Example: AI API integration (e.g., OpenAI or Hugging Face)
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
@@ -34,13 +33,12 @@ router.post("/", async (req, res) => {
                   2. Potential Impact: The significance or potential of each idea.
                   3. Feasibility: How easily the idea can be acted upon.
                   Score the given 3 ideas on a scale of 1 to 5 (1 being the highest) based on the criteria. Provide a single explanation for each idea that justifies the score by discussing how the idea aligns with these three criteria. Ensure the explanation is cohesive and concise.
-                  Give the response in the following format:
-                  [{ideaTitle: "...", ideaScore: 1-5, ideaExplanation: "..."},{...},{...}]`,
+                  Give the response in the following JSON format so it can be parsed easily and index them based on score (low to high):
+                  [{"ideaTitle": "...", "ideaScore": 1-5, "ideaExplanation": "{...},{...},{...}"}]
+                  NOTE: THERE SHOULD BE NO MARKDOWN ELEMENTS`,
         },
       ],
     });
-
-    // console.log(response.choices[0].message.content);
 
     res.json({ ideas: response.choices[0].message.content, query });
   } catch (error) {
@@ -53,12 +51,11 @@ router.post("/explain", async (req, res) => {
   const { chosenIdeas, lastQuery } = req.body;
   console.log(chosenIdeas, lastQuery);
 
-  if (!chosenIdeas)
+  if (chosenIdeas.length < 1)
     return res.status(400).json({
       error: "Please choose at least one idea to get explanation for.",
     });
   try {
-    // Example: AI API integration (e.g., OpenAI or Hugging Face)
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
@@ -73,15 +70,8 @@ router.post("/explain", async (req, res) => {
         },
       ],
     });
-    // const ideas = response.choices[0].message.content
-    // .replace(/\*/g, "")
-    //   .trim()
-    //   .split("\n")
-    //   .filter(
-    //     (line) => line.trim().startsWith("1.") || line.trim().startsWith("2.")
-    //   );
+
     res.json(response.choices[0].message.content);
-    // console.log(ideas);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to generate ideas." });
