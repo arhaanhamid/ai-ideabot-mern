@@ -34,10 +34,15 @@
   justify-content: center;
 }
 .content {
-  height: calc(100vh - 100px); 
+  height: calc(100vh - 150px); 
   width: 70%;
+  overflow: hidden;
   overflow-y: auto;
   padding: 20px;
+  padding-bottom: 50px;
+}
+.content::-webkit-scrollbar {
+  display: none;
 }
 .form-container {
   position: fixed;
@@ -111,22 +116,27 @@
   color: #c3c3c3;
   font-size: 16px;
 }
+
 .ideas-div {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  height: 100px;
-  width: 400px;
+  height: 150px;
+  width: 500px;
   padding: 10px;
   font-size: 16px;
-  border: 2px solid #ccc;
   background-color: #f9f9f9;
   color: black;
   cursor: pointer;
   border-radius: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.ideas-div::-webkit-scrollbar {
+  display: none;
 }
 .ideas-div:nth-child(1) {
   border: 3px solid gold;
@@ -154,15 +164,22 @@
   font-weight: bold;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-.ideas-div:nth-child(1) .ideas-score {
+
+.ideas-div:nth-child(1) .ideas-score,
+.ideas-div:nth-child(1) .ideas-reason
+ {
   background-color: gold;
 }
 
-.ideas-div:nth-child(2) .ideas-score {
+.ideas-div:nth-child(2) .ideas-score,
+.ideas-div:nth-child(2) .ideas-reason
+ {
   background-color: silver;
 }
 
-.ideas-div:nth-child(3) .ideas-score {
+.ideas-div:nth-child(3) .ideas-score,
+.ideas-div:nth-child(3) .ideas-reason
+ {
   background-color: #cd7f32; /* Bronze color */
 }
 .ideas-div.selected {
@@ -176,20 +193,23 @@
   background-color: #c0bebe;
 }
 
-.ask-explain{
+.ideas-reason{
   position: absolute;
   top: 50%;            
   left: 102%;          
   transform: translate(0, -50%); 
-  width: 70px;        
-  height: 70px;  
-  font-size: 14px;      
+  width: 80px;        
+  height: 80px;  
   border-radius: 50%;
   font-weight: bold;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  background-color: gold;
-  /* display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  text-align: center;  */
+}
+.ideas-reason p{
+  font-size: 14px;      
+  position: inherit;
+  top: 50%;     
+  transform: translate(0, -50%);
+  text-align: center;
+  width: 100%;
+
 }

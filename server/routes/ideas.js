@@ -27,21 +27,22 @@ router.post("/", async (req, res) => {
           role: "user",
           content: `Generate 3 unique ideas using upto 10 words based on the query: "${query}"`,
         },
+        {
+          role: "system",
+          content:`3 Criteria:
+                  1. Relevance: How well each idea aligns with the original user query.
+                  2. Potential Impact: The significance or potential of each idea.
+                  3. Feasibility: How easily the idea can be acted upon.
+                  Score the given 3 ideas on a scale of 1 to 5 (1 being the highest) based on the criteria. Provide a single explanation for each idea that justifies the score by discussing how the idea aligns with these three criteria. Ensure the explanation is cohesive and concise.
+                  Give the response in the following format:
+                  [{ideaTitle: "...", ideaScore: 1-5, ideaExplanation: "..."},{...},{...}]`,
+        },
       ],
     });
 
-    const ideas = response.choices[0].message.content
-      .trim()
-      .replace(/\*/g, "")
-      .split("\n")
-      .filter(
-        (line) =>
-          line.trim().startsWith("1.") ||
-          line.trim().startsWith("2.") ||
-          line.trim().startsWith("3.")
-      );
+    // console.log(response.choices[0].message.content);
 
-    res.json({ ideas, query });
+    res.json({ ideas: response.choices[0].message.content, query });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to generate ideas." });
