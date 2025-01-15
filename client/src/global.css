@@ -17,7 +17,7 @@
 
 .main {
   width: 80%;
-  background-color: #262626;
+  background-color: #333;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -44,6 +44,7 @@
 .content::-webkit-scrollbar {
   display: none;
 }
+
 .form-container {
   position: fixed;
   bottom: 0;
@@ -51,14 +52,18 @@
   transform: translateX(-50%); 
   width: 60%; 
   max-width: 60%; 
-  background-color: rgb(56, 56, 56);
+  background-color: rgb(40, 40, 40);
   padding: 0px 20px;
   margin: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 10px;
-  
+  border-radius: 16px;
+}
+
+.explain-btn{
+  margin: 20px 0 50px 0;
+  width: 50%;
 }
 
 /* Styling the input and button */
@@ -80,19 +85,20 @@
   font-style: italic;
 }
 
-.form-container button {
+button {
   width: 20%;
   padding: 10px;
   height: 60px;
+  font-weight: bold;
   background-color: white;
   color: black;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   border: 1px solid black;
 }
 
-.form-container button:hover {
+button:hover {
   background-color: #8e8d8d;
   color: white;
   border: 1px solid white;
@@ -213,3 +219,59 @@
   width: 100%;
 
 }
+
+
+
+.ideas-explained {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f9f9f9;
+  /* padding: 20px; */
+}
+
+.ideas-explained h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #222;
+}
+
+.ideas-explained h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #444;
+}
+.ideas-explained h3 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  
+}
+.ideas-explained h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.ideas-explained p {
+  margin-bottom: 12px;
+}
+
+.ideas-explained ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.ideas-explained ul li {
+  margin-bottom: 8px;
+}
+
+.ideas-explained .highlight {
+  color: #0056b3;
+  font-weight: bold;
+}
+
