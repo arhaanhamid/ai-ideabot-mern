@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const IdeaList = ({ ideas, chosenIdeas, setChosenIdeas }) => {
   const [selectedIdeas, setSelectedIdeas] = useState([]);
 
+
   const handleIdeaClick = (idea) => {
     if (chosenIdeas.includes(idea)) {
       // Remove the idea if it's already chosenIdeas
@@ -22,8 +23,6 @@ const IdeaList = ({ ideas, chosenIdeas, setChosenIdeas }) => {
     }
   };
 
-  console.log(chosenIdeas);
-  console.log(selectedIdeas);
   return (
     <div className="choices-container">
       {ideas.map((idea, index) => (
@@ -32,9 +31,11 @@ const IdeaList = ({ ideas, chosenIdeas, setChosenIdeas }) => {
           className={`ideas-div ${
             chosenIdeas.includes(idea.ideaTitle) || selectedIdeas.includes(index) ? "selected" : ""
           }`}
-          onClick={() => handleIdeaClick(idea.ideaTitle)}
+          onClick={() => handleIdeaClick(idea.ideaTitle, index)}
         >
           {selectedIdeas.includes(index) ? idea.ideaExplanation : idea.ideaTitle}
+          
+          
           <div
             key={index}
             className="ideas-reason"
