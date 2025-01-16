@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const IdeaList = ({ ideas, chosenIdeas, setChosenIdeas }) => {
   const [selectedIdeas, setSelectedIdeas] = useState([]);
 
-
   const handleIdeaClick = (idea) => {
     if (chosenIdeas.includes(idea)) {
       // Remove the idea if it's already chosenIdeas

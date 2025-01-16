@@ -14,7 +14,6 @@ const Chatbot = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Query:", query);
     const button = e.currentTarget.querySelector("button[type='submit']");
     button.disabled = true;
     button.classList.add("disabled");
@@ -27,10 +26,12 @@ const Chatbot = () => {
       button.disabled = false;
       button.classList.remove("disabled");
       
-      console.log("Response:", response);
       setIdeas(JSON.parse(response.data.ideas));
       setLastQuery(response.data.query);
     } catch (error) {
+      setLoading([false, false])
+      button.disabled = false;
+      button.classList.remove("disabled");
       console.error("Error fetching ideas:", error);
     }
   };
@@ -54,6 +55,9 @@ const Chatbot = () => {
       button.classList.remove("disabled");
       setExplainedIdeas(response.data);      
     } catch (error) {
+      setLoading([false, false])
+      button.disabled = false;
+      button.classList.remove("disabled");
       console.error("Error fetching ideas:", error);
     }
   };
