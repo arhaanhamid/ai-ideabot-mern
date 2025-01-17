@@ -53,7 +53,7 @@ Create a .env file in the server directory and configure the following:
 7. Access the application:
 Open http://localhost:3000 in your browser to explore AI Ideabot locally.
 
-8.Usage and Features
+## Usage and Features
   - AI-Powered Idea Generation
   Generate innovative ideas by simply providing prompts.
   
@@ -69,5 +69,5 @@ Open http://localhost:3000 in your browser to explore AI Ideabot locally.
   - Customizable Workflows
   Adapt the tool to suit diverse use cases – from creative brainstorming to business strategy planning.
 
-8. Contributing
+## Contributing
 Contributions are highly appreciated! You can contribute by reporting bugs, suggesting features, or submitting pull requests to improve the platform.
