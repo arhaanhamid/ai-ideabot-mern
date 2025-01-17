@@ -32,10 +32,13 @@ router.post("/", async (req, res) => {
                   1. Relevance: How well each idea aligns with the original user query.
                   2. Potential Impact: The significance or potential of each idea.
                   3. Feasibility: How easily the idea can be acted upon.
-                  Score the given 3 ideas on a scale of 1 to 5 (1 being the highest) based on the criteria. Provide a single explanation for each idea that justifies the score by discussing how the idea aligns with these three criteria. Ensure the explanation is cohesive and concise.
-                  Give the response in the following JSON format so it can be parsed easily and index them based on score (low to high):
-                  [{"ideaTitle": "...", "ideaScore": 1-5, "ideaExplanation": "{...},{...},{...}"}]
-                  NOTE: THERE SHOULD BE NO MARKDOWN ELEMENTS`,
+                  Score the given 3 ideas with 1, 2, 3, 4 or 5 (1 being the highest) based on the criteria. Provide a single explanation for each idea that justifies the score by discussing how the idea aligns with these three criteria. Ensure the explanation is cohesive and concise of 30-40 words in length.
+                  NOTE:
+                  1. There should be no markdown elements.
+                  2. Response format must be in the JSON format so it can be parsed easily like this:
+                  [{"ideaTitle": "...", "ideaScore": 1-5, "ideaExplanation": "{...}"}]
+                  3. Put the ideas in order in the array based on score (1-5)
+                  `,
         },
       ],
     });
@@ -49,7 +52,6 @@ router.post("/", async (req, res) => {
 
 router.post("/explain", async (req, res) => {
   const { chosenIdeas, lastQuery } = req.body;
-  console.log(chosenIdeas, lastQuery);
 
   if (chosenIdeas.length < 1)
     return res.status(400).json({
@@ -79,4 +81,3 @@ router.post("/explain", async (req, res) => {
 });
 
 export default router;
-// module.exports = router;
