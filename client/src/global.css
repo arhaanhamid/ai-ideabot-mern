@@ -2,11 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
-
-#root{
+#root {
   background-color: black;
   width: 100%;
   height: 100vh;
@@ -23,21 +22,22 @@
   /* justify-content: center; */
   /* align-items: center; */
 }
-.navbar, .title{
+.navbar,
+.title {
   padding: 20px;
-  color: white;
+  color: #f9f9f9;
   width: 100%;
 }
-.title{
+.title {
   text-align: center;
 }
-.container{
+.container {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 .content {
-  height: calc(100vh - 150px); 
+  height: calc(100vh - 150px);
   width: 70%;
   overflow: hidden;
   overflow-y: auto;
@@ -52,9 +52,9 @@
   position: fixed;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%); 
-  width: 60%; 
-  max-width: 60%; 
+  transform: translateX(-50%);
+  width: 60%;
+  max-width: 60%;
   background-color: rgb(40, 40, 40);
   padding: 0px 20px;
   margin: 10px 0;
@@ -64,7 +64,7 @@
   border-radius: 16px;
 }
 
-.explain-btn{
+.explain-btn {
   margin: 20px 0 50px 0;
   width: 50%;
 }
@@ -83,8 +83,8 @@
   outline: none;
 }
 
-.form-container > input::placeholder{
-  color: #aaa; 
+.form-container > input::placeholder {
+  color: #aaa;
   font-style: italic;
 }
 
@@ -108,9 +108,9 @@ button:hover {
 }
 
 button.disabled {
-  pointer-events: none;  /* Disable all interactions */
-  cursor: not-allowed;    /* Change cursor to indicate it’s disabled */
-  opacity: 0.6;           /* Optional: make the button visually look disabled */
+  pointer-events: none; /* Disable all interactions */
+  cursor: not-allowed; /* Change cursor to indicate it’s disabled */
+  opacity: 0.6; /* Optional: make the button visually look disabled */
 }
 
 .ideas-container {
@@ -118,7 +118,7 @@ button.disabled {
   flex-direction: column;
   text-align: center;
   /* padding: 20px; */
-}  
+}
 .choices-container {
   display: flex;
   flex-direction: column;
@@ -146,8 +146,9 @@ button.disabled {
   color: black;
   cursor: pointer;
   border-radius: 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .ideas-div::-webkit-scrollbar {
@@ -165,7 +166,7 @@ button.disabled {
   border: 3px solid #cd7f32;
 }
 
-.ideas-score{
+.ideas-score {
   position: absolute;
   top: 0;
   right: 0;
@@ -177,24 +178,23 @@ button.disabled {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .ideas-div:nth-child(1) .ideas-score,
-.ideas-div:nth-child(1) .ideas-reason
- {
+.ideas-div:nth-child(1) .ideas-reason {
   background-color: gold;
 }
 
 .ideas-div:nth-child(2) .ideas-score,
-.ideas-div:nth-child(2) .ideas-reason
- {
+.ideas-div:nth-child(2) .ideas-reason {
   background-color: silver;
 }
 
 .ideas-div:nth-child(3) .ideas-score,
-.ideas-div:nth-child(3) .ideas-reason
- {
+.ideas-div:nth-child(3) .ideas-reason {
   background-color: #cd7f32; /* Bronze color */
 }
 .ideas-div.selected {
@@ -202,34 +202,32 @@ button.disabled {
   color: black;
   border-color: #000000;
   border: 2px solid #03cb24;
-
 }
 .ideas-div:hover {
   background-color: #c0bebe;
 }
 
-.ideas-reason{
+.ideas-reason {
   position: absolute;
-  top: 50%;            
-  left: 102%;          
-  transform: translate(0, -50%); 
-  width: 80px;        
-  height: 80px;  
+  top: 50%;
+  left: 102%;
+  transform: translate(0, -50%);
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   font-weight: bold;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-.ideas-reason p{
-  font-size: 14px;      
+.ideas-reason p {
+  font-size: 14px;
   position: inherit;
-  top: 50%;     
+  top: 50%;
   transform: translate(0, -50%);
   text-align: center;
   width: 100%;
-
 }
-
-
 
 .ideas-explained {
   font-size: 16px;
@@ -257,7 +255,6 @@ button.disabled {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 12px;
-  
 }
 .ideas-explained h2 {
   font-size: 20px;
@@ -283,4 +280,3 @@ button.disabled {
   color: #0056b3;
   font-weight: bold;
 }
-
